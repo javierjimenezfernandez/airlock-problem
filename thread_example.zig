@@ -2,12 +2,12 @@ const std = @import("std");
 const debug = std.debug;
 const time = std.time;
 const Thread = std.Thread;
-const Mutex = std.Thread.Mutex;
-//const RwLock = std.Thread.RwLock;
+// const Mutex = std.Thread.Mutex;
+const RwLock = std.Thread.RwLock;
 
 const Counter = struct {
-    lock: Mutex = .{},
-    // lock: RwLock = .{},
+    // lock: Mutex = .{},
+    lock: RwLock = .{},
     count: u8 = 0,
 
     fn increment(self: *Counter) void {
@@ -21,9 +21,10 @@ const Counter = struct {
     }
 
     fn print(self: *Counter) void {
-        self.lock.lock();
-        //self.lock.lockShared();
-        defer self.lock.unlock();
+        // self.lock.lock();
+        self.lock.lockShared();
+        // defer self.lock.unlock();
+        defer self.lock.unlockShared();
 
         debug.print("read count: {}, ", .{self.count});
     }
