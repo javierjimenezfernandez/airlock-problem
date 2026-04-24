@@ -29,3 +29,9 @@ You can use semaphores/mutexes/locks, whatever is available in your favorite pro
 Be aware that some languages (like Python) have global locks and can run only one thread at a time (single-threaded).
 Please explore what library you can use to run astronauts and chamber in parallel.
 For Python you can use the [multiprocessing library](https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing).
+
+## Solutions
+
+| Language | Setup & Usage |
+|----------|---------------|
+| Zig      | [zig-solution-setup-and-usage.md](zig/zig-solution-setup-and-usage.md) |
